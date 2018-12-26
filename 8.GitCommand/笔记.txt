@@ -1,0 +1,128 @@
+1.在8.Git Command Prev目录下面创建一个demo文件夹
+    cd > 8.Git Command Prev > mkdir demo
+2.切换到demo目录,将demo目录初始化为本地git仓库
+    cd > demo > git init
+3.查看当前本地git仓库的状态
+    git status
+        -显示在master分支上
+        -没有可以提交的内容
+4.在当前仓库创建一个README.md文件
+    vim README.md > 输入内容
+                            # README
+    	                    Hello Git!
+                  > 保存退出
+                            Esc
+                            :wq  // w表示保存   q表示退出
+                  > 查看文件的内容
+                            cat README.md
+5.再次查看当前本地仓库状态
+    git status
+        -表示当前文件没有被跟踪,也就是没有提交到远程仓库
+6.将README.md文件提交到暂存区
+    git add README.md -> git status 查看状态 -> 显示已经提交到暂存区  -> git commit -m "第一个提交" 对提交的版本进行描述
+    -> git status 查看状态 -> 显示在当前主分支上,没有可以提交的内容,工作区已经是空的了
+7.再次修改README.md文件
+    vim README.md -> 输入内容
+                        第一次练习Git Bash命令,我会好好加油的
+                  -> 保存退出
+                        Esc
+                        :wq
+                  -> 查看文件的内容
+                        cat README.md
+8.再次查看文件的状态
+    git status
+        -显示  modified:   README.md ,表示文件已经被修改
+9.再次将修改后的文件提交到暂存区,在这里我们有一个小技巧,可以直接从工作区提交到仓库-前提该文件已经有仓库中的历史版本
+    git commit -m -a "增加了一些信息" > git status 查看状态 - > 显示在当前主分支上,没有可以提交的内容,工作区已经是空的了
+10.查看提交
+    git log > 显示发生的提交,包括提交时的描述,时间日期,作者等信息
+11.查看某一个版本
+    git show 后面跟的是查看提交之后的commit的哈希值 -> 显示当前查看版本当时的内容
+12.再次查看另外一个版本,也就是第一个版本
+    git show 后面跟的是查看提交之后的commit的哈希值 -> 显示当前查看版本当时的内容
+13.复制文件放入当前本地仓库
+    我们不仅可以在当前本地仓库创建文件,也可以复制文件,接下来我们复制一个index.html文件,复制过来都是变更
+14.再次查看状态
+    git status -> 显示又有一个文本没有被版本控制起来
+15.再次将仓库的内容提交到暂存区
+    git add index.html  或者  git add .    //在这里,git add .表示提交仓库所有的文件
+16.再次查看状态
+    git status 显示文件已经提交到暂存区,并且被跟踪起来(版本控制起来)
+17.对暂存区的文件进行描述
+    git commit -m "增加了文件"
+18.再次查看提交的历史
+    git log > 显示发生的提交,包括提交时的描述,时间日期,作者等信息
+19.连接远程仓库
+    打开Github -> 进行登录 -> 新建仓库,名称叫demo,保持和本地仓库相同的名称
+    -> 打开Git Bash -> git remote -v 查看当前本地仓库与远程仓库有没有建议连接
+    -> git remote add 远程仓库新的地址名称(origin)  远程仓库地址(https://github.com/YangMr/demo)
+    -> git remote -v 查看现在有没有连接远程仓库 > 会显示一个获取的地址   和   推送的地址
+20.查看当前本地仓库下的文件
+    ls
+21.查看本地的提交,以及查看是否进行推送
+    git log 查看提交历史
+22.将commit提交推送到远程仓库
+    git push origin master
+23.输入当前Github的用户名以及密码
+24.刷新远程仓库,在远程仓库就可以显示本地仓库的内容
+25.小节:
+    接下来,我们就可以通过Git Bash在Github来搞一些事情:
+        25.1 创建一个doc文件夹
+            mkdir doc
+        25.2 切换到doc目录里面
+            cd doc
+        25.3 复制上一级目录里面的README.md文件,并重新命名为doc.md
+            cp ../README.md doc.md
+        25.4 返回上一级目录
+            cd ..
+        25.5 查看当前仓库的状态
+            git status //显示当前仓库的doc目录没有被版本控制
+        25.6 将doc文件夹添加到暂存区 或者 将当前仓库下的所有文件都提交到暂存区
+            git add doc 或者 git add .
+        25.7 再次查看当前仓库的状态
+            git status   //显示当前版本已被控制(跟踪)
+        28.8 将暂存区的内容提交到本地仓库,并进行描述
+            git commit -m "增加了文档"
+        28.9 将本地仓库的内容推送到远程仓库
+            git push remote origin master
+        28.10 刷新远程仓库,显示当前本地仓库的内容
+26.将远程的仓库提交下拉到本地
+    26.1 修改远程仓库的index.html文件
+    26.2 对做的修改进行描述,内容为 "做了修改"
+    26.3 查看远程的提交修改 ->显示为5次
+    26.4 查看本地的提交修改 -> git log 显示为4次 -> 如果要将本地也修改为5次,会发生冲突,所以在这块我们先不讲,在git进阶课程中讲
+    26.5 接下来,将远程仓库拉到本地仓库分支上
+        git pull origin master
+    26.6 再次查看提交修改的次数,显示的为5次
+    26.6 查看index.html内容,看看是否是远程修改之后的内容
+        cat index.html
+27.总结:
+    在远程创建一个空仓库,在本地建一个仓库,将本地的仓库推动到远程的仓库,这个以后我们就可以让本地仓库和远程仓库慢慢同步了
+        27.1 在Github上面新建一个远程仓库
+                名称为 hello-git
+                描述 hello-git
+                在初始化一个README.md文件
+        27.2 将远程的仓库克隆到本地
+            cd .. 返回到上一次目录
+            ls 查看当前目录下的内容,查看是否是demo文件夹,如果是的话,接下来就进行克隆,让远程仓库的目录个当前的demo本地仓库目录保持在同一级
+            git clone 远程仓库的地址(https://github.com/YangMr/hello-git)
+        27.3 查看是否克隆下来
+            ls
+        27.4 切换到克隆下来的远程仓库hello-git
+            cd hello-git
+        27.5 查看这个目录下的文件
+            ls
+        27.6 在Github上查看hello-git仓库的commit提交次数
+        27.7 在本地Git Bash上面也就行查看hello-git的提交次数
+            git log
+        27.7 再查看本地仓库和远程仓库是否建立关联关系
+            git remote -v  //显示获取远程仓库的地址 以及 推送到远程仓库的地址
+        27.8 接下来修改本地hello-git仓库里面的README.md文件
+            vim README.md
+        27.9 查看当前仓库的状态
+            git status   //显示README.md文件做了修改
+        27.10 将修改的文件直接推送到本地仓库,因为README.md文件已经有历史版本,所以可以直接提交到本地仓库
+            git commit -a -m "修改了一点内容"
+        27.11 将本地仓库的内容推送到远程仓库
+            git push -> 输入用户名 -> 输入密码
+        27.12 刷新Github上面的远程仓库,发现现在已经变成了两个提交
