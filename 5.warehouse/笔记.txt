@@ -1,0 +1,29 @@
+Github仓库:
+
+    1.在Github上创建仓库
+        点击页面的 + 号 > 点击 New repository
+
+        New repository     表示创建新的仓库
+        Import repository  表示导入仓库
+        New gist           表示创建代码片段
+        New organization   表示创建组织
+    2.输入仓库的名称
+    3.输入仓库的描述
+    4.选择公开免费的
+    5.点击创建按钮
+    6.回到个人主页,可以看到自己创建的仓库
+    7.在仓库里面添加README.md文件
+        点击 README.md
+        > 可以在编辑创建的README.md文件 > 添加内容 first step in Github
+        > 提交文件并进行描述 > 点击Commit new file 按钮
+        > 编辑完成之后通过Preview可以进行预览
+    8.再次进行提交
+        编辑README.md文件 > 修改文件的内容 > 在进行提交,并进行描述
+    9.查看变更提交
+    10.创建index.html文件
+    11.通过互联网访问仓库里面的index.html文件
+        11.1 点击Settings设置
+        11.2 找到Github Pages > 选择master branch分支 > 显示发布的地址
+        11.3 再次编辑index.html文件 > 插入一张图片 > 再次进行提交 > 再次通过地址访问
+    12.删除仓库
+        点击Settings设置 > 点击Delete this repository > 输入仓库名称 > 点击按钮 > 输入密码
