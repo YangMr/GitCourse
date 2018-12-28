@@ -17,7 +17,7 @@
                             cat README.md
 5.再次查看当前本地仓库状态
     git status
-        -表示当前文件没有被跟踪,也就是没有提交到远程仓库
+        -表示当前文件没有被跟踪,也就是没有被版本控制
 6.将README.md文件提交到暂存区
     git add README.md -> git status 查看状态 -> 显示已经提交到暂存区  -> git commit -m "第一个提交" 对提交的版本进行描述
     -> git status 查看状态 -> 显示在当前主分支上,没有可以提交的内容,工作区已经是空的了
@@ -54,7 +54,7 @@
     git log > 显示发生的提交,包括提交时的描述,时间日期,作者等信息
 19.连接远程仓库
     打开Github -> 进行登录 -> 新建仓库,名称叫demo,保持和本地仓库相同的名称
-    -> 打开Git Bash -> git remote -v 查看当前本地仓库与远程仓库有没有建议连接
+    -> 打开Git Bash -> git remote -v 查看当前本地仓库与远程仓库有没有连接
     -> git remote add 远程仓库新的地址名称(origin)  远程仓库地址(https://github.com/YangMr/demo)
     -> git remote -v 查看现在有没有连接远程仓库 > 会显示一个获取的地址   和   推送的地址
 20.查看当前本地仓库下的文件
